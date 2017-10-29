@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+
+        var newWindow; // 新窗口的window对象
+
+        // 打开新窗口
+        function openNewWindow() {
+            // window.open()返回的就是新窗口的window对象
+            newWindow = window.open("52-BOM编程案例-5-window对象-新窗口.html");
+        }
+
+        // 关闭新窗口
+        // 我们只要获取到新窗口的window对象,调用新窗口window对象的close()方法,即可关闭新窗口
+        // 那么我们在来窗口中如何获取到新窗口的window对象呢?
+        function closeNewWindow() {
+            newWindow.close();
+        }
+
+        // 在老创中持有新窗口的window对象,也就是newWindow这个全局变量
+        // 有了新窗口的window对象,就可以找到新窗口的document对象,也就可以找到
+        // newForm这个表单
+        function synaValue(nameInputObj) {
+            newWindow.document.newForm.newName.value = nameInputObj.value;
+        }
+
+
+    </script>
+</head>
+<body>
+<center>
+    <h1>这是老窗口</h1>
+</center>
+<hr>
+
+<button onclick="openNewWindow()">打开新窗口</button>
+<button onclick="closeNewWindow()">关闭新窗口</button>
+
+<hr>
+
+<form name="oldForm">
+    <input type="text" name="oldName" onchange="synaValue(this)">
+</form>
+</body>
+</html>

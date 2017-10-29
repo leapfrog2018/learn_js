@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>008-JS中变量的作用范围</title>
+
+<script>
+/*
+JS中的变量分为两种,
+1.全局变量
+2.局部变量
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// 1.全局变量: 在<script>标记中声明的变量,称为全局变量.在整个页面中都是有效的
+var  empno = 7369; // 员工编号
+var ename = "Simih" ;// 员工姓名
+alert("这是在第一个<script>中: empno=" + empno + ",ename=" + ename);
+*/
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// 2.局部变量:在一个函数中,用var来声明的变量称为局部变量.局部变量的有效范围仅仅在他声明的函数中
+// 注意:在函数中声明变量的时候没有使用var,那么这个变量也是全局变量        
+
+function test(){
+     var dname = "开发部";  // 部门名称
+	 
+	 // 注意:在函数中声明变量的时候没有使用var,那么这个变量也是全局变量    
+	 // 在函数中定义的全局变量只有当该函数被调用的时候才会被分配.如果函数没有调用,则这个全部变量不会被分配 
+	 deptno = 20;           // 部门编号  
+	 //alert("在函数中访问 dname=" +dname + ",deptno=" + deptno);
+}
+
+
+// 我们在<script>中声明了一个函数.这个函数是不会自动执行的.
+// 需要我们自己去调用这个函数,这是函数才会被执行
+test();  // 调用函数
+
+// alert("在函数外部访问 dname=" +dname); // dname是一个局部变量,无法访问
+
+alert("在函数外部访问 deptno=" + deptno);
+
+</script>
+
+</head>
+
+<body>
+</body>
+
+<script>
+    //alert("这是在其他<script>中: empno=" + empno + ",ename=" + ename);
+</script>
+
+</html>

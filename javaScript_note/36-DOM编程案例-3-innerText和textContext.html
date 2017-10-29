@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+
+
+        function test2() {
+            var divObj2 = document.getElementById("div2");
+
+            // 在于不同的浏览器中对innerText和textContext中支持方式是不同的
+            // 获取用户使用的浏览器的信息并转换为小写的string
+            var bowerInfo = navigator.userAgent.toLowerCase();
+            // alert(bowerInfo);
+
+            // 查询在bowerInfo中是否包含firefox,也就是判断用户的浏览器是否是FF浏览器
+            if (bowerInfo.indexOf("firefox") >= 0) { // 是FF浏览器
+                divObj2.textContent = "<font color='red'>普通的文字</font>";
+            } else {
+                divObj2.innerText = "<font color='red'>普通的文字</font>";
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<input type="button" value="测试innerText" onclick="test2()">
+
+<div id="div2"></div>
+</body>
+</html>

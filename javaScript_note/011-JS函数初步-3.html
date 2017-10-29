@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <!--
+    注释的快捷键 Alt + /
+    格式化代码的快捷键 Ctrl + Alt + L
+    -->
+    <!--
+    我们的操作系统是简体中文版的window.而按照浏览器的时候,浏览器默认的编码方式和操作系统是一致的
+    我们用Dreamweav开发的时候,Dreamweav使用的编码格式默认的就是GBK或GB2312,所以在浏览器显示的时候没有问题
+    我们使用WebStrorm的时候,WebStrorm编辑html页面的时候默认的使用的是UTF-8编码,而浏览器默认的编码格式是GBK
+    所以会出现乱码.我们需要手动的改变浏览器的编码方式.但是下次重新打开的时候,浏览器又会按照默认的GBK方式打开
+    我们在html页面中加入  <meta charset="utf-8">,就是告诉浏览器用UTF-8编码方式来打开这个HTML页面
+    -->
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+        // 当按钮被点击的时候,对输入框中输入的名字进行问候
+        function sayHello(nameInputObj) {
+            // 用户输入的数据就是这个输入框对象上面的value属性
+            alert("吃了吗您:" + nameInputObj.value);
+        }
+    </script>
+
+</head>
+<body>
+<form name="form1">
+    <input type="text" name="username" id="username"/>
+
+    <!--
+    我们调用sayHell()的时候,已经通过document.getElementById('username')获取到了username的input输入框并且传递给sayHello()函数
+    -->
+    <input type="button" value="问候" onclick="sayHello( document.getElementById('username') )"/>
+</form>
+
+
+</body>
+</html>

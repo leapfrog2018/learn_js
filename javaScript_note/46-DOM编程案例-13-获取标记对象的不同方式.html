@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 获取页面标记对象的不同方式
+        // 1. 通过标记的id属性来获取标记对象.获取到的是单个的标记对象
+        // 2. 通过标记的name属性来获取标记对象.获取到的是一个标记对象的数组
+        //    这种方式通常获取的是是checkbox对象,获取 <input type="radio">对象
+        // 3. 通过标记的名称来获取标记对象,获取到的是一个标记对象的数值
+
+        function getName() {
+            var nameInputObj = document.getElementById("name");
+            alert("你输入的是:" + nameInputObj.value);
+        }
+
+        // 获取checkbox选中的内容
+        function getCheckBoxValue() {
+            // 获取到的是一个checkbox的数组,保存着多个checkbox标记对象
+            var checkboxArr = document.getElementsByName("aihao");
+            alert("总共有:" + checkboxArr.length + "个checbox对象");
+
+            // 遍历数组,看看选中了那些内容
+            for (var i in checkboxArr) {
+                // 如果checkbox对象的checked属性为true,就表示这个checkbox被选中
+                if (checkboxArr[i].checked) {
+                    alert("你选中的checkbox的value是:" + checkboxArr[i].value);
+                }
+            }
+        }
+
+        // 获取页面中所有的<input>标记
+        function getAllInputObjs() {
+            // 得到的是一个数组对象
+            var inputObjArr = document.getElementsByTagName("input");
+            alert("页面中总共有:" + inputObjArr.length + "个input标记");
+        }
+
+        // 获取Select中选中的内容
+        function getSelectValue() {
+            // 通过Select标记对象的id属性来获取Select标记对象
+            var selectObj = document.getElementById("xueli");
+
+            // Select标记对象中有多个选项,是一个Option的数组
+            var optionArr = selectObj.options;
+
+            // Select标记对象中还有一个属性,是被选中的option的索引
+            var selectIndex = selectObj.selectedIndex;
+
+            // 根据被选中的索引从数组中找出对应的option对象
+            var optionObj = optionArr[selectIndex];
+
+            // 获取Select标记对象上选中的的内容
+            // 也可以通过option对象获取选中的内容和对应的value
+            alert("你选中的是:" + selectObj.value + "-" + optionObj.value + "-" + optionObj.text);
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" name="name" id="name">
+<button onclick="getName()">获取用户名</button>
+
+<hr>
+
+爱好<br>
+<!--
+这一组checkbox标记的name属性都是相同的,这样在表示这是一组数据
+checkbox标记中有一个checked属性,这也是一个单属性
+表单中checkbox向服务器体检的时候,提交数据的格式: reg.html?aihao=yudong&aihao=dushu&aihao=lvyou&....
+-->
+<input type="checkbox" name="aihao" value="yundong" checked="checked"> 运动 <br>
+<input type="checkbox" name="aihao" value="dushu"> 读书 <br>
+<input type="checkbox" name="aihao" value="lvyou"> 旅游 <br>
+<input type="checkbox" name="aihao" value="meishi"> 美食 <br>
+<input type="checkbox" name="aihao" value="yinyue"> 音乐 <br>
+
+<button onclick="getCheckBoxValue()">获取选中的内容</button>
+
+<hr>
+
+<button onclick="getAllInputObjs()">获取界面上面所有的&lt;input&gt;标记</button>
+
+<hr>
+
+<!--
+onchange 当标记中的值被改变并且失去焦点事件的处理句柄
+-->
+<select name="xueli" id="xueli" onchange="getSelectValue()">
+    <option value="gaozhong">高中</option>
+    <option value="daben">大本</option>
+    <option value="shuoshi">硕士</option>
+    <option value="boshi">博士</option>
+
+</select>
+
+</body>
+</html>

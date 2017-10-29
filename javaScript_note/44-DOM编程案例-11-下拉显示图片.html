@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 每间隔一段实际,在显示图片
+
+        // 点击按钮的时候,显示图片
+        function showImg() {
+            // 让当前按钮(也就是显示图片按钮)失效
+            document.getElementById("b1").disabled = true;
+
+
+            //  让隐藏图片按钮生效
+            document.getElementById("b2").disabled = false;
+
+            // 获取到img标记对象
+            var imgObj = document.getElementById("img");
+            if (imgObj.width < 600) {
+                setImgWidthAndHeight();
+            }
+        }
+
+        // 设置图片的宽度好高度
+        function setImgWidthAndHeight() {
+            // 获取到img标记对象
+            var imgObj = document.getElementById("img");
+
+            // 让图片的宽度好高度增加一些
+            imgObj.width += 3;
+            imgObj.height += 2;
+
+
+            // 10毫秒之后,调用showImg()函数
+            window.setTimeout("showImg()", 10);
+        }
+
+        // 隐藏图片
+        function hideImg() {
+            // 让当前按钮(也就是隐藏图片的按钮)失效
+            document.getElementById("b2").disabled = true;
+            // 让显示图片按钮生效
+            document.getElementById("b1").disabled = false;
+
+            // 获取到img标记对象
+            var imgObj = document.getElementById("img");
+            if (imgObj.width >= 0) {
+                setImgWidthAndHeight2();
+            }
+        }
+
+        function setImgWidthAndHeight2() {
+            // 获取到img标记对象
+            var imgObj = document.getElementById("img");
+
+            // 让图片的宽度好高度增加一些
+            imgObj.width -= 3;
+            imgObj.height -= 2;
+
+            // 当拓图片宽度或高度<=0的时候,就不要在执行了.也就是循环结束
+            if (imgObj.width <= 0 || imgObj.height <= 0) {
+                return;
+            }
+
+            // 每间隔一段实际,在显示图片
+            // 10毫秒之后,hideImg()函数
+            window.setTimeout("hideImg()", 10);
+        }
+    </script>
+</head>
+<body>
+<button onclick="showImg()" id="b1" >示图片</button>
+
+<!--
+disabled 是一个单属性按钮,可以直接在标记中写成<button onclick="hideImg()" id="b2" disabled>
+为了维护良好的编写代码的习惯,写出 disabled="true" 或 disabled="disabled"
+-->
+<button onclick="hideImg()" id="b2" disabled="true">隐藏图片</button>
+<hr>
+<!--图片的宽度高度初始化为0,这样图片不会显示-->
+<img src="img/1.jpg" width="0" height="0" id="img">
+</body>
+</html>

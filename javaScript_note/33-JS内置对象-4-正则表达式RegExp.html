@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         正则表达式就是专门来处理String数据的.按照特定的规则,用正则元素指定一个有规则的模板
+         (例如邮箱的规则),然后测试某个String是否符合这个规则.(也就是测试某个String是否符合邮箱的规则)
+         */
+
+        // 测试参数string是否是有效的中文字符
+        // JS中字符是采用UniCode编码的,每个国家的字符都在在UniCode编码的某个范围之内
+        function checkChinaese(str) {
+            var re = "[\u4e00-\u9fa5]"; // 中文的编码范围
+            var regExp = new RegExp(re); // 创建正则表达式对象
+            if (regExp.test(str)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        var str = "动力节点";
+        if (checkChinaese(str)) {
+            alert(str + "是有效的中文");
+        } else {
+            alert(str + "不是有效的中文");
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

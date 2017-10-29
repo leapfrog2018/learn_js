@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 判断输入的年龄是否在最低到最高范围之内
+        function validate(ageInputObj, lowValue, heiValue) {
+            // 判断用户输入的值是否是有效的数值类型
+            if (isNaN(ageInputObj.value)) {
+                alert("不是有效的数值类型");
+            } else {
+                if (ageInputObj.value >= lowValue && ageInputObj.value <= heiValue) {
+                    alert("有效的年龄");
+                } else {
+                    alert("无效的年龄");
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<!--
+onChange 输入标记的内容被改变并且失去焦点事件的处理句柄
+this 就代表当前的输入框标记
+-->
+<input type="text" name="age" onChange="validate(this,10,20);"/>
+</body>
+</html>

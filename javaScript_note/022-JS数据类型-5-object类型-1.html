@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         JS中也存在引用类型,也有Object,注意,这个Object就是所谓的引用类型,也就是object类型
+         和java中一样,JS中也存在继承机制,Object类是所有类的共同基类
+         JS中也存在着方法覆盖的概念
+         Object类中也有默认的toString()方法.和Java一样,当我们输一个对象的时候,JS会自动的调用对象的toString()
+
+
+         var obj1 = new Object();
+         var obj2 = new Dept(10, "软件开发部", "北京大兴");
+         println("obj1 的类型是:" + typeof (obj1));
+         println("obj2 的类型是:" + typeof (obj2));
+
+         //  Object类中也有默认的toString()方法.和Java一样,当我们输一个对象的时候,JS会自动的调用对象的toString()
+         println(obj1);
+         println(obj1.toString());
+
+         //和java中一样,JS中也存在继承机制,Object类是所有类的共同基类
+         // Dept类继承自Object类,也就从Object类中继承了toString()的方法
+         // JS中也存在着方法覆盖的概念.当我们在Dept类中覆盖了toString()之后,就会调用到我们覆盖的toString()方法中
+         // 这个他特性和java中是一致的!
+         println(obj2);
+         println(obj2.toString());
+
+
+         //////////////////////////////////////////////////////////////////////////////////////
+         // Object类定义了constructor属性,获取对象的构造方法的信息.这个属性可以被子类继承
+         var obj1 = new Object();
+         var obj2 = new Dept(10, "软件开发部", "北京大兴");
+
+         println(obj1.constructor);
+         println("<hr>");
+         println(obj2.constructor);
+         */
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Object类定义了prototype(原型)的属性.可以通过这个属性给一个类动态的添加属性添加方法
+        // 新添加的属性方法对这个类所有的对象都是有效的
+        var dept1 = new Dept(10, "开发部", "大兴区");
+        var dept2 = new Dept(20, "销售部", "朝阳区");
+
+        //可以通过prototype属性给已经定义好的Dept类动态的添加属性, 方法
+        // 新添加的属性方法对这个类所有的对象都是有效的
+        Dept.prototype.test = function () {
+            alert("这是Dept类上面新添加的方法test()被调用");
+        };
+
+        Dept.prototype.manager = null;
+        dept1.manager = "张经理";
+        dept2.manager = "王经理";
+
+        dept1.test();
+        dept2.test();
+
+        alert(dept1.dname + "的经理是:" + dept1.manager);
+        alert(dept2.dname + "的经理是:" + dept2.manager);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

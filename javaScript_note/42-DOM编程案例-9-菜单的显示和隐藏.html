@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+
+    <style>
+        /*
+        标记选择符,给html中标记指定一种显示效果.浏览器遇到这种标记就会按照规定的样式进行显示
+        */
+        ul {
+            list-style-type: none; /*去掉标题前面的小圆点*/
+        }
+
+        /*
+        标识选择符,通过#来制定,在标记中通过id属性来引用标识选择符
+        */
+        #citysOfChina {
+            display: none; /* none 隐藏ul ;  block显示ul */
+        }
+    </style>
+
+
+    <script src="js/common.js"></script>
+    <script>
+
+        var isHidden = true;
+
+        // 显示或隐藏菜单.也就是通过JS来控制CSS
+        function hideOrEcho() {
+            // 获取到ul标记对象
+            var ulObj = document.getElementById("citysOfChina");
+
+            if (isHidden) {
+                // 控制ul标记对象上面的CSS
+                ulObj.style.display = "block";
+                isHidden = false;
+            } else {
+                // 控制ul标记对象上面的CSS
+                ulObj.style.display = "none";
+                isHidden = true;
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li><a style="cursor:pointer;" onclick="hideOrEcho();">中国</a>
+
+        <!--ul中的id属性既要给css使用,又要给JS来使用-->
+        <ul id="citysOfChina">
+            <li>北京市</li>
+            <li>上海市</li>
+            <li>天津市</li>
+        </ul>
+    </li>
+    <li>美国</li>
+    <li>日本</li>
+</ul>
+</body>
+</html>

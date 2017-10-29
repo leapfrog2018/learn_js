@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+        ///////////////////////////////////////////////////////////////////////////////
+        // 浏览器是按照自上而下的顺序加载html页面的.当加载JS代码的时候,在JS代码中执行了
+        // var spanObj = document.getElementById("info"); .但是这是页面中并没有span标记对象
+        // 也就是没有获取到span标记对象
+        // 除非我们把JS代码放到<span>标记的下面.这样浏览器加载时候,先加载html中 body中的相关标记
+        // 然后再执行JS代码,这样就可以有效的获取span标记对象
+        function sayHello1(username) {
+            var spanObj = document.getElementById("info");
+            if (username.length < 6) {
+                // <span>标记中的内容就是span对象的innerHTML属性
+                spanObj.innerHTML = "<font color='red'>无效的用户名</font>";
+            } else {
+                spanObj.innerHTML = "<font color='green'>有效的用户名</font>";
+            }
+        }
+
+        function clearInfo() {
+            var spanObj = document.getElementById("info");
+            spanObj.innerHTML = "";
+        }
+
+    </script>
+
+</head>
+<body>
+<form name="form1">
+    <!--
+    onblur="sayHello1(this.value)"
+    onblur:标记失去焦点事件的处理句柄
+    this 出现在 <input> 标记中,就表示这个<input>对象本身
+    -->
+    <input type="text" name="username" id="username" onblur="sayHello1(this.value)" onclick="clearInfo()"/>
+    <span id="info"></span>
+
+
+</form>
+
+
+</body>
+</html>

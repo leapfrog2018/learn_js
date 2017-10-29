@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         //////////////////////////////////////////////////////////////////////////////////////////////////////
+         JS中的string类型和Java中String类型一致,都是采用的UniCode编码格式,一个字符占用2个字节
+         在JS中使用string的时候可以使用"",也可以使用''
+         在JAVA中String是引用类型,在JS中string是基本类型
+         JS中和java中有区别,基本类型上面也有属性,也有方法
+         var s1 = "Hello";
+         var s2 = "动力节点";
+         println(s1 + "的长度是:" + s1.length);
+         println(s2 + "的长度是:" + s2.length);
+
+
+         //////////////////////////////////////////////////////////////////////////////////////////////////////
+         // 在JS中把其他类型的数据转为为string类型,有两种方式
+         //==============================================================================
+         // 1.几乎任何类型上面都有toString()的方法(null和undefined上面没有toString()的方法)
+         var num1 = 100, num2 = NaN, num3 = Infinity;
+         var s1 = num1.toString(); // "100"
+         var s2 = num2.toString(); // "NaN"
+         var s3 = num3.toString(); // "Infinity"
+         println(s1 + "的类型是:" + typeof(s1));
+         println(s1 + "," + s2 + "," + s3);
+
+         // null和undefined上面没有toString()的方法
+         var obj = null;
+         var u;
+         // var s4 = obj.toString();
+         //println(s4)
+         var s5 = u.toString();
+         println(s5);
+
+
+        //多数情况下，调用toString()方法不必传递参数。但是，在调用数值的toString()方法时，可以传递一个参数：输出数值的基数
+        var num1 = 10;
+        var s1 = num1.toString(2); // 把10这个数值转为为2进制格式的string,得到的结果是"1010"
+        var s2 = num1.toString("2"); // 把10这个数值转为为2进制格式的string,得到的结果是"1010"
+        println(s1);
+        println(s2);
+
+        var s3 = num1.toString(8);  //把10这个数值转为为8进制格式的string,
+        var s4 = num1.toString(10); //把10这个数值转为为10进制格式的string,
+        var s5 = num1.toString(16); //把10这个数值转为为16进制格式的string,
+        println(s3);
+        println(s4);
+        println(s5);
+        */
+        /*
+         //==============================================================================
+         // 2.调用String()函数,该函数可以将任何类型数据转换为String,包括null和undefined
+         var num1 = 100, num2 = NaN, num3 = Infinity;
+         var obj = null;
+         var u;
+
+         var s1 = String(num1); // "100"
+         var s2 = String(num2); // "NaN"
+         var s3 = String(num3); // "Infinity"
+         var s4 = String(obj); // "null"
+         var s5 = String(u);   // "undefined"
+         println(s1 + "," + s2 + "," + s3 + "," + s4 + "," + s5);
+         */
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+
+        /*
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         // String是JS中内置的一种引用类型
+         // 在JS中有String类型(这是一种引用类型) 也有string类型(这是一种基本类型)
+         // 实际上string就是通过String创建出来的一个具体的对象而已,只不过JS中把string当做一种基本类型来使用
+         // number就是Number创建处理的一个具体的对象
+         // boolean就是Boolean创建出来的一个具体的对象
+
+         var s1 = new String("百度"); // new出来的都是object类型,也就是所谓的引用类型
+         var s2 = "百度";   // string类型的,是一种基本类型
+
+         println(s1 + "的类型是:" + typeof (s1));
+         println(s2 + "的类型是:" + typeof (s2));
+
+         // String对象上面的方法,string上面都有
+         println(s1 + "的长度是:" + s1.length);
+         println(s2 + "的长度是:" + s2.length);
+
+         println(s1.link("http://www.baidu.com"));
+         println(s2.link("http://www.baidu.com"));
+
+
+         var s1 = "  Hello  ";
+         println(s1 + "的长度是:" + s1.length);
+
+         var res = s1.trim();// 清除string前面的后面的空格
+         println(res + "的长度是:" + res.length);
+
+
+         var s1 = "Hello";
+
+         // 给String类动态的添加test1()的方法,对String类所有的对象都是有效的
+         String.prototype.test1 = function () {
+         alert("String类中的test()方法被调用");
+         }
+
+         s1.test1();
+
+
+         var s1 = "大号的字体";
+         println(s1);
+         println(s1.big());
+
+         var  str = "HelloJavaWorldJava";
+         var index =  str.indexOf("Java");
+         alert(index);
+
+
+         // 替换String中指定的内容
+         // g :表示全局替换 ;i表示忽略大小写
+         println("Javaoraclec++javaphp".replace(/java/gi, "我"));
+         println("Javaoraclec++javaphp".replace(/java/i, "我"));
+         println("Javaoraclec++javaphp".replace(/java/g, "我"));
+         */
+
+        var str = "How old are you!"
+        var arr1 = str.split(" "); // 按照空格切分string,返回一个数组
+        var arr2 = str.split(""); // 按照字符切分string,返回一个数组
+        var arr3 = str.split(" ", 3); // 按照空格切分string,返回一个数组,该数组中只包含前三个元素
+
+        println(arr1);
+        println(arr2);
+        println(arr3);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

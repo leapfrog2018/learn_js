@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+
+</head>
+<body>
+
+<!--
+onblur 输入标记失去焦点事件的处理句柄.在这个输入标记失去焦点的时候检查数据是否是有效的数值格式
+this就代表当前的输入框标记
+onfocus :输入框标记获得焦点事件的处理句柄,和onclick是一致的
+-->
+<input type="text" name="userage" onblur="checkAge(this.value);" onfocus="clearError();"/>
+<!--该图层负责显示错误信息,span不是独占行的-->
+<span id="info"></span>
+
+
+<script>
+    var spanObj = document.getElementById("info");
+    // 检查用户在输入框中输入的数据是否是有效的数值格式
+    // 用户在输入框中输入的数据实际都是string类型的数据   "Hello"  "1000"
+    function checkAge(strage) {
+        //alert(strage + "的类型是:" + typeof (strage));
+
+        if (isNaN(strage)) {
+            spanObj.innerHTML = "<font color='red'>" + strage + "不是有效的数值类型</font>";
+        } else {
+            // strage 是string类型,居然可以直接和numbler类型的20进行比较
+            // 说明JS自动的把string类型的数据转换为number类型的,然后才和数值进行比较的
+            // 是如何转换的呢?
+            if (strage >= 20 && strage <= 30) {
+                spanObj.innerHTML = "<font color='green'>" + strage + "是有效的数值</font>";
+            } else {
+                spanObj.innerHTML = "<font color='red'>" + strage + "不是有效的数值</font>";
+            }
+        }
+    }
+
+    function clearError() {
+        spanObj.innerHTML = "";
+    }
+</script>
+</body>
+</html>

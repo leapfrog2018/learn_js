@@ -1,0 +1,73 @@
+
+<html>
+<head>
+
+<title>004-在html中引入外部的JavaScript文档</title>
+
+<!--
+在html中通过<script src="js/common.js"></script>引入外部的JS文件
+注意:在因为外部js的<script>开始标记和结束标记之间,不能写其他的js代码,并且必须要有开始标记和结束标记
+-->
+
+<!--
+错误的演示,必须要有开始标记和结束标记
+<script src="js/common.js" />
+-->
+
+<!--
+在<script>和</script>之间不能写JS代码 
+-->
+<script src="js/common.js">
+   // alert("看看我能执行吗?"); 这里写的JS代码不会被执行
+</script>
+
+<script language="javascript">
+     alert("呵呵,我是可以执行的!");
+</script>
+
+<script>
+     alert("呵呵,我也是可以执行的!");
+</script>
+
+</head>
+
+<body>
+ <center>
+	     <h3>注册新用户</h3>
+	     <hr>
+		  <!--
+		  表单的action属性指明要提交到服务器的那个组件中.通常是Servlet或JSP.但是这里用一个html来暂时替代
+		  method="get" 表单提交的方式,有两种方式
+		    1.get方式:表单中的数据会被添加到浏览器的地址栏中,数据的格式: reg.html?username=admin&userpwd=123&repwd=123
+			  注意:当我们使用超链接的时候,也可以传递参数,这也是get方式 
+			2.post方式:表单中的数据不会显示到地址栏中,会被隐藏到请求头中
+		   	
+		  -->
+		  <form action="002-reg.html" method="get" name="regForm">
+		     <!--
+			 注意<input> 标记中的id属性值是不能重复的
+			 --> 
+		     姓名      <input type="text" name="username" id="username">  <br>
+		     密码      <input type="password" name="userpwd" id="userpwd"><br>
+			 确认密码  <input type="password" name="repwd" id="repwd"><br>
+			 <br>
+			 <br>
+			 <!--
+			 当一个提交按钮被点击的时候,onClick会自动触发
+			 onClick 可以称为表单提交按钮事件的处理句柄
+			 在html中处理事件的句柄的格式: onxxx
+			 在标记的onclick处理句柄中调用checkForm(),并根据checkForm()返回的结果来提交或终止提交表单
+			 当checkForm()返回true,则提交表单;当 checkForm()返回false,则终止提交表单
+			 -->
+			 <input type="submit" value="提交" onClick="return checkForm()"><input type="reset" value="重置">
+			 
+		  </form>
+		  
+		  <hr>
+		  <a href="002-reg.html?username=admin&pwd=123&repwd=123" title="呵呵,我也可以传递数据到服务器,也是get方式">       
+		  通过超链接也可以传递数据,这也是get方式
+		  </a>
+		 
+   </center>	
+</body>
+</html>

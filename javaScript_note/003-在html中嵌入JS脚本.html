@@ -1,0 +1,30 @@
+
+<html>
+<head>
+
+
+<title>003-在html中嵌入JavaScript代码</title>
+
+<!--
+在html中通过使用<script>标记.在<script>标记内部编写JS代码
+<script></script>可以出现在html页面的任何部分
+-->
+
+<script>
+      // 弹出一个对话框.这个对话会阻塞浏览器的加载过程.只有点击了弹出对话框上面的确定按钮之后
+	  // 浏览加载的过程才会继续执行
+	  // 浏览器加载页面的过程,就是按照自上而下的顺序执行的!
+      window.alert("HelloWorld!欢迎进入JavaScript精彩的世界");
+</script>
+
+</head>
+
+<body>
+   这是浏览器中显示的内容
+   
+   <script>
+        alert("很高兴,有见面了!");
+   </script>
+   
+</body>
+</html>

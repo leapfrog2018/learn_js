@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 当点击编辑按钮的时候,获取到id=name的td标记对象
+        // 让这个td标记对象的innerHTML变成一个<input type="text">
+        // 这样就可以编辑这个输入框中的内容了
+        function edit() {
+            var tdObj = document.getElementById("name");
+            var oldNmae = tdObj.innerHTML;
+            tdObj.innerHTML = "<input type='text' style='background-color: aquamarine' name='username' id='username' value='" + oldNmae + "'>";
+        }
+
+
+        // 当点击保存按钮的时候,获取到id=name的td标记对象
+        // 让这个编辑对象的innerHTML是一个string,这样就不可以编辑了
+        function save(){
+            // 获取td对象
+            var tdObj = document.getElementById("name");
+
+            // 获取原来的输入框中的value
+            var oldName= document.getElementById("username").value;
+            tdObj.innerHTML = oldName;
+        }
+
+    </script>
+</head>
+<body>
+<center>
+    <table border="1" width="300">
+        <tr align="center">
+            <td width="50%">姓名</td>
+            <td>
+                操作
+            </td>
+        </tr>
+
+        <tr >
+            <td id="name">张1</td>
+            <td align="center">
+                <input type="button" value="编辑" onclick="edit()">
+                <input type="button" value="保存" onclick="save()">
+            </td>
+        </tr>
+    </table>
+
+</center>
+</body>
+</html>

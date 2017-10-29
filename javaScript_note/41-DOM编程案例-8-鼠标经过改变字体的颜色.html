@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 当鼠标进入超链接标记对象的时候,改变超链接对象的css
+        function changeColor(color) {
+            // 获取超超链接对象
+            var linkObj = document.getElementById("baidu");
+
+            // 通过JS来控制CSS
+            linkObj.style.color = color;
+        }
+    </script>
+</head>
+<body>
+<!--
+onmouseover 鼠标进入标记的事件的处理句柄
+onmouseout  鼠标退出标记的事件的处理句柄
+-->
+<div><a href="http://www.baidu.com" onmouseover="changeColor('red')" onmouseout="changeColor('blue')" id="baidu">百度</a></div>
+</body>
+</html>

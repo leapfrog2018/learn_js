@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="js/common.js"></script>
+    <script>
+        /**********************************************************************************************
+         JS中的数据类型分为两大类
+         一.基本类型
+         1.数值型 number
+         2.字符串型 string
+         3.布尔型   boolean
+         4.未定义类型  undefined
+         二.引用类型
+         1.object类型
+         2.函数实际上是object的子类型(JS中也存在着继承关系)
+
+         JS中变量的类型会随着赋值的不同而改变,所以我们需要一种方式来检测变量的类型,可以使用typeof()函数
+         typeof()函数返回的结果肯定是一个string类型的结果,是如下几种情况之一
+         "undefined"——如果这个值未定义；
+         "boolean"——如果这个值是布尔值；
+         "string"——如果这个值是字符串；
+         "number"——如果这个值是数值；
+         "object"——如果这个值是对象或null；
+         "function"——如果这个值是函数；
+
+         typeof() 函数的用法
+         1. typeof (变量名称)
+         2.typeof  变量名称
+         3.typeof 函数名称
+         *********************************************************************************************/
+
+//        var s1 = 'Hello', s2 = "World"; // string类,可以使用"",也可使用''
+        //        println(s1 + "的类型是:" + typeof  (s1) + "," + s2 + "的类型是:" + typeof s2);
+        //
+        //        var num1 = 100, num2 = 9.6, num3 = NaN, num4 = Infinity; // number类型
+        //        println(num1 + "的类型是:" + typeof(num1) + "," + num2 + "的类型是:" + typeof(num2) + "," + num3 + "的类型是:" + typeof(num3) + "," + num4 + "的类型是:" + typeof(num4))
+        //
+        //        var b1 = true,b2 = false; // boolean类型
+        //        println(b1 + "的类型是:" + typeof  (b1) + "," + b2 + "的类型是:" + typeof b2);
+        //
+        //        // 我们声明一个变量没有赋值,或者说直接给这个变量赋值为undefined,这时变量的类型就是undefined类型
+        //        var u1,u2 = undefined; // undefined类型
+        //        println(u1 + "的类型是:" + typeof  (u1) + "," + u2 + "的类型是:" + typeof u2);
+        //
+        //        println("----------------------------");
+        //
+        //        var dept= new Dept(10,"开发部",'北京');
+        //        println("dept的类型是:" + typeof(dept));
+        //
+        //        println("----------------------------");
+        //
+        //        println("dept的类型是:" + typeof Dept);
+        //        println("dept的类型是:" + typeof (Dept));
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        var u1, u2 = undefined;
+        println("u1 == u2 ? " + (u1 == u2)); // 两个undefined用==相比是true
+
+        // 注意:typeof( u1 ) 返回的结果是一个string,这个string的内容是"undefined"
+        if (typeof( u1 ) == u2) {
+            println("ok");
+        } else {
+            println("Not ok");
+        }
+
+        var num = "中国人";
+        if (typeof(num) == "number"){
+            println(num + "是数值类型");
+        }else{
+            println("<font color='red'>" + num + "不是数值类型</font>")
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

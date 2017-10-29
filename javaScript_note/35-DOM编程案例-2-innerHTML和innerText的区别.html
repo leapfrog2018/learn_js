@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        function test1() {
+            var divObj1 = document.getElementById("div1");
+            // innerHTML中的<font>标记被浏览器当做html标记来执行
+            divObj1.innerHTML = "<font color='red' size='6'>我被当做html语句来呗浏览器解析</font>"
+        }
+
+        function test2() {
+            var divObj2 = document.getElementById("div2");
+
+            //  innerText就被浏览器当做是一段普通的String,浏览器不把<big>当做html标记来看待
+            // <big> 被认为是 &lt;big &gt;
+            // 但是在FF中不支持innerText ,在Google,IE中是支持的
+            //divObj2.innerText = "<big>我被当做普通String来被浏览器显示</big>";
+
+            //  textContent 和  innerText 作用是一样的,但是在不同的浏览器中支持是不同的
+            // 在FF中支持 , 在Google,高版本的IE中是支持的(在低版本的IE中不支持)
+            // 在高版本的浏览器中textContent兼容性比较好
+            divObj2.textContent = "<big>我被当做普通String来被浏览器显示</big>";;
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="测试innerHTML" onclick="test1()">
+
+<div id="div1"></div>
+<hr>
+<input type="button" value="测试innerText" onclick="test2()">
+<div id="div2"></div>
+
+<hr>
+<div>&lt;font&gt;普通的字符串&lt;/font&gt;</div>
+</body>
+</html>

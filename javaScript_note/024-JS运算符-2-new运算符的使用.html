@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+         JS中的new 和Java中new 用法是一致的,都是用来创建对象的.可以可以创建JS内存的类的对象(例如Object)
+         我们也可以创建我们自定义类的对象(例如:我们自己定义的Dept类)
+
+
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+         // JS是动态的编程语言, 我们声明好一个类之后,可以执行的动态的操作
+         //----------------------------------------------------------------
+         // 1.通过prototype给一个类动态的添加属性,添加方法,新添加的属性和方法对该类所有的对象都是有效的
+         var dept1 = new Dept(10, "开发部", "大兴区");
+         var dept2 = new Dept(20, "销售部", "朝阳区");
+
+         //可以通过prototype属性给已经定义好的Dept类动态的添加属性, 方法
+         Dept.prototype.test = function () {
+         alert("这是Dept类上面新添加的方法test()被调用");
+         };
+         Dept.prototype.manager = null;
+
+         dept1.manager = "张经理";
+         dept2.manager = "王经理";
+
+         dept1.test();
+         dept2.test();
+
+         alert(dept1.dname + "的经理是:" + dept1.manager);
+         alert(dept2.dname + "的经理是:" + dept2.manager);
+
+         //----------------------------------------------------------------
+         // 2.我们可以单独给某个对象添加属性,添加方法.而不会影响其他的对象
+         var dept1 = new Dept(10, "开发部", "大兴区");
+         var dept2 = new Dept(20, "销售部", "朝阳区");
+
+         dept1.manager = "张经理";
+         dept1.test = function () {
+         return this.dname + "的经理是" + this.manager;
+         }
+         println(dept1.test());
+
+
+         //----------------------------------------------------------------
+         // 3.我们可以动态删除某个对象上面的属性.但是不会影响其他的对象
+         var dept1 = new Dept(10, "开发部", "大兴区");
+         var dept2 = new Dept(20, "销售部", "朝阳区");
+
+         // 删除dept1对象上面的loc属性
+         delete dept1.loc;
+
+         println(dept1);
+         println(dept2);
+         */
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 在java中一个类的属性可以是另外一种类型:例如Student类中有一个地址的属性,这个地址属性的类型是另外一个Address类
+        // JS中也可以这么做
+        function  Person( name,age){
+            this.name= name;
+            this.age = age;
+        }
+
+        // owner : 车主
+        function Car(owner ,color){
+            this.owner = owner;
+            this.color = color;
+        }
+
+        var per = new Person("张三",23);
+        var car = new Car(per,"白色");
+
+        println("车主的名字:" + car.owner.name)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

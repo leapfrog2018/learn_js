@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 全选或取消全选
+        function checkAllOrCancelAll(checkboxObj) {
+            //  通过name属性来获取checkbox对象的数组,因为下面这些checkbox标记的name属性都是相同的
+            var checkboxObjArr = document.getElementsByName("aihao");
+
+            // 获取页面上的span标记对象
+            var spanObj = document.getElementById("span1");
+
+            //            if (checkboxObj.checked) {
+            //                spanObj.innerHTML = "取消全选";
+            //                //alert("全选");
+            //                // 遍历数组,使其中的每个checkbox对象都被选中
+            //                for (var i = 0; i < checkboxObjArr.length; i++) {
+            //                    checkboxObjArr[i].checked = true;
+            //                }
+            //            } else {
+            //                spanObj.innerHTML = "全选";
+            //                //alert("取消全选");
+            //                // 遍历数组,使其中的每个checkbox对象都被选中
+            //                for (var i = 0; i < checkboxObjArr.length; i++) {
+            //                    checkboxObjArr[i].checked = false;
+            //                }
+            //            }
+
+            ////////////////////////////////////////////////////////////////////
+            // 简化上面的代码
+            for (var index in checkboxObjArr) {
+                if (checkboxObj) {
+                    checkboxObjArr[index].checked = true;
+                    spanObj.innerHTML = "取消全选";
+                } else {
+                    checkboxObjArr[index].checked = false;
+                    spanObj.innerHTML = "全选";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="checkbox" onclick="checkAllOrCancelAll( this )"> <span id="span1">全选</span>
+<hr>
+<input type="checkbox" name="aihao" value="yundong"> 运动 <br>
+<input type="checkbox" name="aihao" value="dushu"> 读书 <br>
+<input type="checkbox" name="aihao" value="lvyou"> 旅游 <br>
+<input type="checkbox" name="aihao" value="yinyue"> 音乐 <br>
+<input type="checkbox" name="aihao" value="meishi"> 美食 <br>
+
+</body>
+</html>

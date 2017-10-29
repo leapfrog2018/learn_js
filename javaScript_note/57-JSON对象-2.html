@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+
+    <script type="text/javascript">
+        /*////////////////////////////////////////////////////////////////////////////////////////////
+         回顾:在JS中使用自定义对象的过程
+         1.用function 声明这个类
+         2.使用new来创建这个类的对象
+         3.调用对象上面的属性和方法
+         */
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        function User(name, age, password) {
+            this.name = name;
+            this.age = age;
+            this.password = password;
+
+            this.toString = function () {
+                return "user的信息[name" + this.name + ",age=" + this.age + ",password=" + this.password + "]";
+            }
+        }
+        var user = new User("张三", 23, "123456");
+
+
+        /*
+         ////////////////////////////////////////////////////////////////////////////////////////////
+         // JSON: JavaScript对象标记,可以简化自定义对象的使用过程,把第一步和第二部融合到一起
+         JSON语法 : var 变量 = {
+         属性: 属性值,
+         属性: 属性值,
+         属性: 属性值  // 注意:最后一个语句后面没有,
+         };
+         属性值 可以是 任何类型,(当然也可以是数组了)
+         */
+        var user1 = {
+            "name1": "张三",
+            "age1": 23,
+            "password1": "123456"
+        }
+
+        //println("user.name=" + user.name);
+        //println("user1.name1=" + user1.name1);
+
+        // 访问对象属性的不同方式
+        // 方式1:使用传统的对象方式进行访问
+        println("user.name=" + user.name + ",user.age=" + user.age + ",user.password=" + user.password);
+        println("user1.name1=" + user1.name1 + ",user1.age1=" + user1.age1 + ",user1.password1=" + user1.password1);
+
+        println("----------------------")
+        // 方式2:使用[]方式来访问
+        println("user.name=" + user["name"] + ",user.age=" + user["age"] + ",user.password=" + user["password"]);
+        println("user1.name1=" + user1["name1"] + ",user1.age1=" + user1["age1"] + ",user1.password1=" + user1["password1"]);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

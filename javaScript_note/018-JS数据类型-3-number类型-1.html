@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // number类型.JS中不区分整形和浮点型,都是number类型
+        //        var res = 10 / 4;  // 2.5
+        //        println("res=" + res);
+        //
+        //        var num1 = 0 / 0;  // NaN: Not a Number
+        //        var num2 = "Hello" * 2;// NaN
+        //        var num3 = 100 / 0; // Infinity:无穷大
+        //        println("num1=" + num1 + ",num2=" + num2 + ",num3=" + num3)
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // NaN的两个特点
+        // 1.NaN和任何的数值都不相等,包括和它自己
+        // 2.任何涉及NaN的算术运算,结果都是NaN
+        //        var num1 = 0/ 0,num2 = NaN;
+        //        println("num1==num2 ? " + (num1 == num2));
+        //        var res = 10+30 *1245 - (100/3.54) / ("Hello"/2);
+        //        println("res=" + res);
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // JS中有一个isNaN()函数,用了判断一个参数是否是一个NaN.
+        // 该函数会尝试着将参数转为一个数值,如果能够得到有效的数值,则isNaN()函数返回false.如果不能将参数
+        // 转换为一个有效的数值,则该数值就是NaN,则则isNaN()函数返回true
+        //        var  s = "Hello";
+        //        // "Hello"不能被转为为有效的数值,转换的结果是NaN,所以isNaN()函数返回的结果是true
+        //        if( isNaN(s)){
+        //            println(s +" 不是有效的数值类型");
+        //        }else{
+        //            println(s +" 是有效的数值类型");
+        //        }
+        //
+        //        println(isNaN(true));  // true被转换为1 ,所以该函数返回false
+        //        println(isNaN(false)); // false会被转为0 ,所以该函数返回false
+        //        println(isNaN(NaN)); // true
+        //        println(isNaN("Hello")); // true
+        //        println(isNaN("1000")); // isNaN()转换"1000"的时候,可以得到有效的数值,所以该函数返回false
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

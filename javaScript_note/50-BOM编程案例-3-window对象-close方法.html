@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        function closeWindow() {
+            if (window.confirm("你真的要关闭窗口吗?")) {
+                // FF浏览器默认的不支持window.close();
+                // FF 浏览器默认的不让脚步关闭非脚步打开的浏览器
+                // 在方法浏览器地址栏中输入 about:config
+                // 在弹出的界面中,选择"允许脚本关闭窗口"设置为true
+                window.close();  // 关闭窗口
+            }
+        }
+    </script>
+</head>
+<body>
+<button onclick="closeWindow();">关闭窗口</button>
+</body>
+</html>

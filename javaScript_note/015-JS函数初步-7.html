@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /******************************************************************************************************
+         在JS中和JAVA中一样,也有引用类型.用法是一样的:通过new来创建对象,然后调用对象上面的属性和方法
+         在JS中也可以定义自定义的引用类型
+         我们用下面的代码定义了一个JS中的类,也可以称为构造方法,也可以说声明了一个函数
+         在JS中使用自定义引用类型的过程(和Java中是一样的)
+         1.声明类
+         2.用声明的类来创建对象
+         3.调用对象上面的属性和方法
+         ******************************************************************************************************/
+
+        //  deptno 部门编号;
+        // dname 部门名称
+        // loc 部门位置
+        function Dept(deptno, dname, loc) {
+            alert("--------------------->可以被执行吗?");
+            // 把参数的属性赋值给类中的成员变量.但是成员变量不需要单独声明,直接赋值就可以了
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc = loc;
+
+            // 在类中定义方法
+            this.getInfo = function () {
+                return "部门信息[deptno=" + this.deptno + ",dname=" + this.dname + ",loc=" + this.loc + "]";
+            }
+            alert("--------------------->确实被执行了!");
+        }
+
+        // 通过new来创建对象,然后调用对象上的属性和方法
+        var dept = new Dept(10, "销售部", "北京");
+        //document.write("dname=" + dept.dname + "<br>");
+        //document.write(dept.getInfo() + "<br>");
+
+        println("deptno=" + dept.deptno);
+        println("dname=" + dept.dname);
+        println("loc=" + dept.loc);
+        println(dept.getInfo());
+
+        // 改变对象上面的属性
+        dept.dname = " 渠道部";
+        dept.loc = "天津";
+
+        println(dept.getInfo());
+
+        println("----------------------------")
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        // function Dept(){} 我们既可以说这是定义了一个类,或定义了一个构造方法,也可以说定义了一个函数
+        // 下面的代码把Dept()当做一个函数来调用;
+        Dept(10,"开发部","北京");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

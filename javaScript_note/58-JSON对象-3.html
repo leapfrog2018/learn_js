@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+
+    <script type="text/javascript">
+        var per = {
+            "name": "张三",
+            "addr": {  // 地址的属性是另外一个JSON对象
+                "city": "北京",
+                "street": "大兴区",
+                "zipcode": "100012"
+            },
+            "aihao": ["抽烟", "喝酒", "烫头"] // 爱好属性的值是一个数组
+        };
+
+        println("name=" + per.name);
+        println("地址:" + per.addr.city + "-" + per.addr.street + "-" + per.addr.zipcode);
+
+        // 爱好的取值是一个数组
+        var arr = per.aihao;
+        print("爱好:")
+        for(var i in arr){
+            print(arr[i] + ",");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

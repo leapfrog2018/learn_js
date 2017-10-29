@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         swich语句
+         在java中,swich语句的条件是一个和int兼容(可以自动的转换为int)的表达式活变量
+         在JS中,swich语句的条件是任何类型的变量
+
+         var s1 = "hello";
+         switch (s1) {
+         case "hello":
+         println("hello");
+         break;
+         case "world":
+         println("world");
+         break;
+         default :
+         println("其他");
+         break;
+         }
+         */
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // for in语句,类似于java中的的for each循环.用法如下
+        // 1.可以遍历数组
+        var arr = ["红", "橙", "黄", "绿", "青", "蓝", "紫"];
+        // index控制的是数组的索引
+        for (var index in arr) {
+            println("arr[" + index + "]=" + arr[index]);
+        }
+
+        println("---------------------")
+
+        // 2.可以取出对象中所有的成员的信息(包括属性和方法)
+        var dept = new Dept(10, "销售部", "北京");
+        for (var p in dept) {
+            println(p + "-"+ dept[p]); // dept[p] 访问对象特定的属性的值
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

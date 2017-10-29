@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /*
+         JSON对象的具体的作用是什么呢?
+         这是一种轻量级的数据交互格式.当我们浏览器端要向服务器端查询数据的时候
+         在服务器端可以把返回的结果封装成一个JSON格式的string,并把这个JSON格式
+         的string返回给浏览器端,在浏览器端可以使用eval函数直接解析JSON对象
+
+         在交互数据的时候,还可以使用XML格式,是一种重量级的数据交互格式
+         XML的解析操作比JSON要复杂的多选
+
+         所以:在交互数据的时候,通常都是使用JSON来传输数据
+         */
+
+        // 下面这个string就是从服务器端返回的json格式的string
+        var str = 'var user ={"name": "张三",age : 23,"address":"北京市大兴区"}';
+
+        // 使用eval函数解析并执行这个从服务器端返回的string
+        eval(str)
+
+        // 访问对象的属性
+        println("user.name=" + user.name + ",age=" + user.age + ",address=" + user.address);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

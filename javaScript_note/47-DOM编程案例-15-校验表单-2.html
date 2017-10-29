@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>无标题文档</title>
+
+<script>
+   // JS是基于对象的编程语言.JS中并没有面向对象编程语言的高级特效:例如多态,重载
+
+
+  // 当表单的提交按钮被点击的时候,校验表单数据.当表单校验通过,返回true.校验失败返回false
+  // 校验规则:
+  // 1.用户名不能为空,用户名的长度不能小于6位
+  // 2.密码不能为空,密码的长度不能小于6位
+  // 3.密码和确认密码必须要一致
+  function checkForm(){
+      /*
+	  我们首先要获取到表单中的<input>标记(可以被看做是一个对象)
+	  然后判断这个标记对象上面的value属性是否是有效的值
+	  可以通过<input>标记的id属性来获取这个input标记对象
+	  */
+	  var nameInputObj = document.getElementById("username");
+	  
+	  // 用户在<input>标记中输入的数据就是nameInputObj.value .是一个类似于Java中String的这么一个东西
+	  if(nameInputObj.value == ""){
+	       // 弹出一个错误信息提示框,提示用户没有输入有效的数据
+		   window.alert("用户名不能为空");
+		   nameInputObj.focus(); // 让页面上的name <input> 获得焦点,便于用户输入
+		   return false; // 通过return false来阻止表单的提交
+	  }
+	  else if(nameInputObj.value.length < 6){
+	       alert("用户名长度不能小于6位");
+		   nameInputObj.focus(); // 让页面上的name <input> 获得焦点,便于用户输入
+		   return false; // 通过return false来阻止表单的提交	  
+	  }
+	  
+	  //////////////////////////////////////////////////////////////////////////////
+	  // 校验输入密码
+	  // 获取页面上的密码输入框对象
+	  var pwdInputObj = document.getElementById("userpwd");
+	  if(pwdInputObj.value == ""){
+	       alert("密码不能为空");
+           pwdInputObj.focus(); 
+		   return false;
+	  }else if(pwdInputObj.value.length < 6){
+	       alert("密码长度不能小于6位");
+           pwdInputObj.focus(); 
+		   return false;	  
+	  }
+	  
+	   //////////////////////////////////////////////////////////////////////////////
+	  // 校验确认密码
+	  var repwdInputObj = document.getElementById("repwd");
+	  if(pwdInputObj.value != repwdInputObj.value){
+	      alert("密码和确认密码必须要一致");
+          repwdInputObj.focus(); 
+		  return false;
+	  }
+
+	  
+	  // 如果校验通过,则return true,表示可以提交表单
+	  return true;
+  }
+
+</script>
+
+</head>
+
+<body>
+  <center>
+	     <h3>注册新用户</h3>
+	     <hr>
+		  <!--
+		  表单的action属性指明要提交到服务器的那个组件中.通常是Servlet或JSP.但是这里用一个html来暂时替代
+		  method="get" 表单提交的方式,有两种方式
+		    1.get方式:表单中的数据会被添加到浏览器的地址栏中,数据的格式: reg.html?username=admin&userpwd=123&repwd=123
+			  注意:当我们使用超链接的时候,也可以传递参数,这也是get方式 
+			2.post方式:表单中的数据不会显示到地址栏中,会被隐藏到请求头中
+		  -->
+
+          <!--
+          当一个表单的提交按钮被点击的时候,表单标记的submit事件会被触发
+          我们可以处理表单的提交事件的处理句柄,在onsubmit中调用校验函数
+          这个处理句柄根据校验函数返回true/false来提交或终止提交表单
+          -->
+		  <form action="002-reg.html" method="get" name="regForm" onsubmit="return checkForm()">
+		     <!--
+			 注意<input> 标记中的id属性值是不能重复的
+			 --> 
+		     姓名      <input type="text" name="username" id="username">  <br>
+		     密码      <input type="password" name="userpwd" id="userpwd"><br>
+			 确认密码  <input type="password" name="repwd" id="repwd"><br>
+			 <br>
+			 <br>
+              <!--
+              submit按钮具有提交表单的功能.我们处理提交按钮的点击事件
+              在提交按钮处理事件句柄中调用校验函数,该事件的处理句柄会
+              根据校验函数返回true/false来提交或终止提交表单
+              onClick="return checkForm()"
+              -->
+			 <input type="submit" value="提交" ><input type="reset" value="重置">
+		  </form>
+		  
+		  <hr>
+		  <a href="002-reg.html?username=admin&pwd=123&repwd=123" title="呵呵,我也可以传递数据到服务器,也是get方式">       
+		  通过超链接也可以传递数据,这也是get方式
+		  </a>
+		 
+   </center>		 
+</body>
+</html>

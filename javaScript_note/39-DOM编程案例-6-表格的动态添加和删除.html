@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        function addStu() {
+            // 获取页面中用户输入的内容
+            var stuname = document.getElementById("stuname").value;
+
+            // 获取到页面中的table标记对象
+            var tableObj = document.getElementById("stutable");
+
+            // tableObj.rows是表示表格中有多少行,是一个数组,
+            // 这个数组的length属性就是表格中的行数
+            var rowLength = tableObj.rows.length;
+
+            // table标记对象上面有一个insertRow()的方法,向table中插入一行
+            // 插入的时候需要指定索引,该方法返回的是新插入的行对象TableRow
+            // 若插入的index 等于表中的行数，则新行将被附加到表的末尾。
+            var tableRowObj = tableObj.insertRow(rowLength);
+
+            // 取得时间戳(也就是一个不能重复的数值)
+            var rowId = new Date().getTime();
+            // 用这个时间戳作为行对象的id属性
+            tableRowObj.id = rowId;  // 1103
+
+            // 向行中插入列,也就调用ableRowObj对象的insertCell()方法
+            var tableCellObj1 = tableRowObj.insertCell(0); // 第一列
+            var tableCellObj2 = tableRowObj.insertCell(1);// 第二列
+
+            // 设置第一列中的内容
+
+            tableCellObj1.innerHTML = stuname;
+            tableCellObj2.innerHTML = "<input type='button' value='删除' onclick='deleteRow(" + rowId + ")'>";
+        }
+
+
+        // 从表格中删除一行
+        function deleteRow(rowId) {
+            if(window.confirm("你真的要删除数据吗?")) {
+                // 根据要删除的行的id从页面中获取该行对象
+                var tableRowObj = document.getElementById(rowId);
+
+                // 根据tableRowObj对象获取该行在table中的索引
+                var index = tableRowObj.rowIndex;
+
+                // 获取到页面中的table标记对象
+                var tableObj = document.getElementById("stutable");
+
+                // 从tableObj对象中删除一列
+                tableObj.deleteRow(index);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" name="stuname" id="stuname">
+<input type="button" value="添加数据" onclick="addStu()">
+<hr>
+<table border="1" width="200" id="stutable">
+    <tr>
+        <td>姓名</td>
+        <td>操作</td>
+    </tr>
+
+</table>
+</body>
+</html>

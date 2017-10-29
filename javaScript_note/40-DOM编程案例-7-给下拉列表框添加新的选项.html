@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 向Select中添加的选项
+        // 1.获取到Select标记对象
+        // 2.创建信息的option对象
+        // 3.把新的option对象添加到Select标记对象中
+        function addNewOption() {
+            // 获取用户从文本输入框中输入的内容
+            var newValue = document.getElementById("newxueli").value;
+
+            ///////////////////////////////////////////////////////////////
+            // 向Select中添加的选项
+            // 1.获取到Select标记对象
+            var selectObj = document.getElementById("xueli");
+
+            // 2.创建信息的option对象
+            var optionObj = document.createElement("option");
+            optionObj.value = newValue; // 设置option对象的value属性
+            optionObj.text = newValue; // 设置option对象的text属性
+
+            // 3.把新的option对象添加到Select标记对象中
+            selectObj.add(optionObj,null); // 第二个参数为null，元素添加到选项数组的末尾。
+        }
+
+        function addNewOption1(){
+            // 获取用户从文本输入框中输入的内容
+            var newValue = document.getElementById("newxueli1").value;
+
+            // 1.获取到Select标记对象
+            var selectObj = document.getElementById("xueli1");
+
+            // 2.创建信息的option对象.第一个参数表示option中显示的内容,第二个参数表示option的value
+            var newOption = new Option(newValue,newValue);
+
+            // 3.把新的option对象添加到Select标记对象中. 也就是向Select对象添加子元素
+            selectObj.appendChild(newOption);
+        }
+
+    </script>
+</head>
+<body>
+
+<input type="text" name="newxueli" id="newxueli">
+<button onclick="addNewOption()">添加选中</button>
+<select id="xueli">
+</select>
+
+<hr>
+<input type="text" name="newxueli1" id="newxueli1">
+<button onclick="addNewOption1()">添加选中</button>
+<select id="xueli1">
+</select>
+
+</body>
+</html>

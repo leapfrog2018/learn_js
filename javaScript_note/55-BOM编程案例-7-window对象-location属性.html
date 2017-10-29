@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+
+    <script type="text/javascript">
+        //   window.location就是当前页面在地址栏中显示的地址
+        // alert(window.location)
+
+        /*
+         在客户端如何向服务器发送请求(打开新的页面或发送数据),
+         1.可以通过表单
+         2.可以通过超链接 <a href="login?name=admin&password=123">访问服务器</>
+         3.window.open()
+         4.在地址栏中直接输入  : http://www.baidu.com
+         5.可以使用location属性向服务器发送请求
+
+         */
+
+        function openBaiDu() {
+            // 注意:使用window.location 或 window.location.href 的时候,window还是原来的window对象
+            // 方式1:
+            // window.location = "http://www.baidu.com";
+            // 方式2:
+            // window.location.href = "http://www.baidu.com";
+
+            // 方式3:
+            window.document.location = "http://www.baidu.com";
+
+            // 方式4:
+            window.document.location.href = "http://www.baidu.com";
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="打开百度" onclick="openBaiDu();">
+</body>
+</html>

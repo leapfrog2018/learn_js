@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /*
+         window.open () 打开新的地址
+         */
+        function openNewWindow() {
+            // alert("到了吗?");
+            // _self 在当前的选项卡中打开.但是window对象已经是新开课窗口的window对象,而不是原来的window对象
+            window.open("http://www.baidu.com" ,"_self");
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="openNewWindow()">打开百度</button>
+</body>
+</html>

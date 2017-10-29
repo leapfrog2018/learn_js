@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+         // 返回两个数相乘的乘积
+         function mul(v1, v2) {
+         return v1 * v2;
+         }
+
+         println(mul(10, 20));
+
+         // 在Java这这样不行.但是在JS中是可以的,结果是200
+         // 因为JS会自动的把string转换为number类型,然后再进行乘法的操作
+         println(mul("10", "20"));
+         println(mul(2, "Hello")); // NaN
+         println(mul("World", "Hello")); // NaN
+
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+         //---------------------------------------------------
+         // JS中的== 和java中的== 相同点
+         // 1.对于基本类型来说,是比较两个基本类型的值是否相等
+         // 2.对于引用类型来说,是比较两个引用的地址是否相同
+         var num1 = 100, num2 = 100;
+         println("num1 == num1 ? " + (num1 == num1));
+         println("'Hello' == 'Hello' ? " + ("Hello" == 'Hello'));
+         println("undefined == undefined ? " + (undefined == undefined));
+         println("true == true ? " + (true == true));
+
+         var obj1 = new Object();
+         var obj2 = new Object();
+         var obj3 = obj1; // 和Java中一样,引用类型在传递的时候传递的是引用的地址
+         println("obj1 == obj2 ? " + (obj1 == obj2)); // false
+         println("obj1 == obj3 ? " + (obj1 == obj3)); // true
+
+
+
+         //---------------------------------------------------
+         // JS中的== 和java中的== 不同点
+         // 下面这种写法在java中是错误的.但是在JS中是可以的.在js会吧两个不同类型的变量转换成相同的类型,然后再去比较
+         // 转换的规则如下:当两个运算数的类型不同时：将他们转换成相同的类型，
+         // 1)一个数字与一个字符串，字符串转换成数字之后，进行比较。
+         // 2)true转换为1、false转换为0，进行比较。
+         var s1 = "100";  // string类型
+         var num1 = 100;  // number类型
+         println("'100' == 100 ? " + (s1 == num1)); // true
+
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+         // ===这是java没有的.具体的用法:
+         // 只有两个变量的类型一致的时候,才会去比较.如果两个变量的类型不一致则直接返回false
+         // === 既要比较变量的类型,又要比较变量的值
+         var s1 = "100";
+         var  num= 100;
+         println("'100' == 100 ? " + (s1 == num));  // true
+         println("'100' === 100 ? " + (s1 === num));// false
+
+         println("null == undefined ? " + (null == undefined));// true
+         println("null === undefined ? " + (null === undefined));// false
+
+         */
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // N初始化条件,N迭代条件.但是只有一个循环条件
+        //        for (var i = 0, j = 10; i <= 10; i++, j--) {
+        //            println("i=" + i + ",j=" + j);
+        //        }
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // delete运算符的使用,有三种形式
+        // 1.删除对象中的某个属性.但是不会影响其他的对象
+        //        var dept1 = new Dept(10, "销售部", "朝阳区");
+        //        var dept2 = new Dept(20, "开发部", "大兴区");
+        //
+        //        println(dept1);
+        //        println(dept2);
+        //
+        //        // 删除dept1对象的loc属性.但是不会影响dept2对象
+        //        delete dept1.loc;
+        //        println(dept1);
+        //        println(dept2);
+
+        // 2.删除数组中的某个元素,但是不会影响数组的长度和其他的数组元素
+        //var arr = [10, 20, 30, 40, 50];
+
+        // 遍历数组
+        //        println("数组的长度是:" + arr.length);
+        //        for( var i=0;i< arr.length;i++){
+        //            println("arr[" + i + "]=" + arr[i]);
+        //        }
+        //
+        //        // 删除数组的某个元素但是不会影响数组的长度和其他的数组元素
+        //        delete arr[1];
+        //        println("删除数据之后,数组的长度是:" + arr.length);
+        //        for( var i=0;i< arr.length;i++){
+        //            println("arr[" + i + "]=" + arr[i]);
+        //        }
+
+        // 3.用在with语句中
+//        var dept1 = new Dept(10, "销售部", "朝阳区");
+        //
+        //        // 传统的方式中,要调用对象上面的属性,方法,必要要通过引用.xxx的方式
+        //        println(dept1.deptno + "," + dept1.dname + "," + dept1.loc);
+        //        println(dept1.toString());
+        //
+        //        println("-----------------------------------")
+        //        // 在JS中可以通过with语句简化对象的访问方式,不需要在使用引用.xxx的方式
+        //        with (dept1) {
+        //            println(deptno + "," + dname + "," + loc);
+        //            println(toString());
+        //        }
+        //
+        //        // 在下面这个with句中,通过delete删除了对象的loc属性
+        //        with (dept1) {
+        //            delete  loc; //通过delete删除了对象的loc属性
+        //            println(deptno + "," + dname);
+        //            println(loc);
+        //            println(toString());
+        //        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

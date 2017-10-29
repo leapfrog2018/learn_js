@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script>
+        // 有些来版本的浏览器不支持trim()方法
+        // 我们可以通过String类的prototype给String类动态的添加trim方法
+        String.prototype.trim = function () {
+            // 正则表达式  /^\s+/ 表示 String 中前面的" "
+            // 正则表达式  /\s+$/ 表示 String 中后面的" "
+            return this.replace(/^\s+/, "").replace(/\s+$/, "");
+        }
+
+        //        var str = "  张三   ";
+        //        alert("->" + str + "<-的长度是:" + str.length);
+        //        // String类中提供了trim()的方法,去除String中前面和后面的空格
+        //        var res = str.trim();
+        //        alert("->" + res + "<-的长度是:" + res.length);
+
+
+        // 校验用户名是否有效
+        function checkUsername() {
+            // 获取span标记对象
+            var spanObj = document.getElementById("usernameError");
+
+            // 清空用户输入的string中的前后的空格
+            strValue = document.getElementById("username").value.trim();
+            if (strValue == "") {
+                spanObj.innerHTML = "<font color='red'>用户名不能为空</font>"
+                return false;
+            } else if (strValue.length < 6 || strValue.length > 14) {
+                spanObj.innerHTML = "<font color='red'>用户名长度在6位~14位之间</font>"
+                return false;
+            } else {
+                //
+                spanObj.innerHTML = '<img src="img/ok.jpg">'
+                return true;
+            }
+        }
+
+        // 清空用户名错误信息
+        function clearUsernameError() {
+            // 获取span标记对象
+            var spanObj = document.getElementById("usernameError");
+            spanObj.innerHTML = "";
+        }
+
+        function checkAll() {
+            // 校验表单成功
+            if (checkUsername()) {
+                // 获取表单对象
+                // 方式1:通过表单对象的id属性来获取表单对象
+                //var formObj= document.getElementById("userForm");
+
+                // 方式2:通过表单对象的name属性来获取表单对象
+                // document对象是浏览器提供的对象,就相当于浏览器中的正文部分
+                // 我们的表单就是浏览器正文部分的一个子元素,也就是document对象上面的一个属性
+                //var formObj = document.userForm
+
+                // 方式3:一个页面中可以有多个表单(页面实际上就是document,也就是浏览器的正文部分)
+                // document上面有一个forms的属性,就代表这个表单的数组
+                // 我们自己写的表单就是这个数组中的第0个元素
+                var formObj = window.document.forms[0];
+
+                // 设置表对象的action,method属性
+                formObj.action = "./002-reg.html";
+                formObj.method = "get";
+
+                // 调用表单对象的submit()方法,来提交表单
+                formObj.submit();
+            } else {
+                alert("表单上面信息不完整,请重新填写!");
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<!--
+表单验证需求：
+    1、用户名不能为空
+    2、用户名长度必须在6-14位之间
+    3、要求用户填写一个表单项验证一个表单项
+    4、当一个表单项不合法的时候，要求在表单项后面显示错误信息【使用红色字体】
+    5、表单项非法的时候，显示了错误信息，当用户重新编写该表单项的时候，去除错误提示信息
+    6、密码和确认密码必须一致
+    7、当表单中有无效数据的时候，应阻止表单的提交
+-->
+
+
+<!--
+我们并没有指明表单中的重要的属性 action 和 method 属性
+action 指明表单要提交到服务器中的那个Servlet或JSP中
+method指明表单提交的方式
+-->
+<form name="userForm" id="userForm">
+    用户名
+    <!--当焦点失去时验证用户名，失去焦点事件：blur，事件句柄是：onblur-->
+    <!--当获得焦点时清除错误提示信息，获得焦点事件：focus，事件句柄是：onfocus-->
+    <input type="text" id="username" name="username" onblur="checkUsername();"
+           onfocus="clearUsernameError();">
+    <span id="usernameError"></span>
+    <br>
+    密码
+    <input type="password"
+           id="password"
+           name="password">
+    <br>
+
+    确认密码
+    <!--没有name属性，则不会提交数据到服务器-->
+    <input type="password"
+           id="confirmPassword"
+           onblur="checkPwd();"
+           onfocus="clearPwdError();">
+    <span id="pwdError"></span>
+    <br>
+
+    <!--只有submit按钮才会具有提交表单的功能,而普通的button按钮并没有提交表单的功能-->
+    <!--把submit修改为button，这样表单就不会提交了，可以考虑使用javascript代码让表单提交-->
+    <!--页面中的表单也是一个对象,表单对象上面有submit()的方法-->
+    <input type="button" value="注册" onclick="checkAll();">
+
+</form>
+
+
+</body>
+</html>
